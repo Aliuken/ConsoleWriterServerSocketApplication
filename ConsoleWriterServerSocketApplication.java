@@ -26,21 +26,21 @@ public class ConsoleWriterServerSocketApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		try ( 
-            ServerSocket serverSocket = this.getLocalhostServerSocket();
-            Socket clientSocket = this.getClientSocket(serverSocket);
+            		ServerSocket serverSocket = this.getLocalhostServerSocket();
+            		Socket clientSocket = this.getClientSocket(serverSocket);
 			InputStream clientSocketInputStream = clientSocket.getInputStream();
 			InputStreamReader clientSocketInputStreamReader = new InputStreamReader(clientSocketInputStream);
-            BufferedReader clientSocketBufferedReader = new BufferedReader(clientSocketInputStreamReader);
-        ) {
-            String inputLine;
-            while ((inputLine = clientSocketBufferedReader.readLine()) != null) {
-                System.out.println(inputLine);
-            }
-        } catch (IOException e) {
-            System.out.println("Exception caught when trying to listen on " + SERVER_SOCKET_BIND_ADDRESS + ":" + SERVER_SOCKET_PORT + " with backlog " + SERVER_SOCKET_BACKLOG);
-            System.out.println(e.getMessage());
-        }
-        System.out.println("EchoServerSocketApplication ended");
+            		BufferedReader clientSocketBufferedReader = new BufferedReader(clientSocketInputStreamReader);
+        	) {
+            		String inputLine;
+            		while ((inputLine = clientSocketBufferedReader.readLine()) != null) {
+                		System.out.println(inputLine);
+            		}
+        	} catch (IOException e) {
+            		System.out.println("Exception caught when trying to listen on " + SERVER_SOCKET_BIND_ADDRESS + ":" + SERVER_SOCKET_PORT + " with backlog " + SERVER_SOCKET_BACKLOG);
+            		System.out.println(e.getMessage());
+        	}
+        	System.out.println("EchoServerSocketApplication ended");
 	}
 	
 	private ServerSocket getLocalhostServerSocket() throws UnknownHostException, IOException {
