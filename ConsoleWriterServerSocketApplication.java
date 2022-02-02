@@ -1,4 +1,4 @@
-package es.caixabank.stratus.echoserversocket;
+package com.mycompany.project.serversocket;
 
 import java.io.BufferedReader;
 import java.io.IOException;
