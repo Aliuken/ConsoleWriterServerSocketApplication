@@ -26,7 +26,7 @@ public class ConsoleWriterServerSocketApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		try ( 
-            		ServerSocket serverSocket = this.getLocalhostServerSocket();
+            		ServerSocket serverSocket = this.getServerSocket();
             		Socket clientSocket = this.getClientSocket(serverSocket);
 			InputStream clientSocketInputStream = clientSocket.getInputStream();
 			InputStreamReader clientSocketInputStreamReader = new InputStreamReader(clientSocketInputStream);
@@ -43,7 +43,7 @@ public class ConsoleWriterServerSocketApplication implements CommandLineRunner {
         	System.out.println("EchoServerSocketApplication ended");
 	}
 	
-	private ServerSocket getLocalhostServerSocket() throws UnknownHostException, IOException {
+	private ServerSocket getServerSocket() throws UnknownHostException, IOException {
 		ServerSocket serverSocket = new ServerSocket(SERVER_SOCKET_PORT, SERVER_SOCKET_BACKLOG, SERVER_SOCKET_BIND_ADDRESS);
 		System.out.println("serverSocket: " + serverSocket);
 		System.out.println("serverSocket localSocketAddress: " + serverSocket.getLocalSocketAddress());
